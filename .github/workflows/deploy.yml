@@ -1,6 +1,5 @@
 name: Deploy Expo App to Firebase
 
-# Chạy khi có push vào nhánh main
 on:
   push:
     branches:
@@ -59,6 +58,8 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }} # App ID của Firebase
-          token: ${{ secrets.FIREBASE_TOKEN }}   # Firebase CI token
+          token: ${{ secrets.FIREBASE_TOKEN }}   # Firebase CI token sẽ được thay thế bằng Service Account Key
           groups: testers                       # Nhóm testers sẽ nhận được ứng dụng
           file: my-app.apk                      # Tên file APK đã tải về
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} # Service Account Key
