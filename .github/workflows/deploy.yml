@@ -21,16 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Expo CLI
-        run: npm install -g expo-cli
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
 
       - name: Build Android APK
         env:
           EXPO_CLI_TOKEN: ${{ secrets.EXPO_CLI_TOKEN }}
-        run: expo build:android --no-wait
+        run: eas build -p android --non-interactive
 
       - name: Download APK
-        run: wget -O my-app.apk "$(expo url:apk)"
+        run: wget -O my-app.apk "$(eas build:artifact-url)"
 
       - name: Upload APK to Firebase
         uses: wzieba/Firebase-Distribution-Github-Action@v1
