@@ -1,6 +1,6 @@
 {
   "expo": {
-      "jsEngine": "hermes",
+    "jsEngine": "hermes",
     "name": "ai-travel-planner-app",
     "slug": "ai-travel-planner-app",
     "version": "1.0.0",
@@ -32,6 +32,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3e112b5f-84af-4f91-a068-65832a796dba"
+      }
+    },
+    "owner": "nhontdn2509"
   }
 }
