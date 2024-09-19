@@ -2,7 +2,7 @@
   "expo": {
     "jsEngine": "hermes",
     "name": "TravelGen",
-    "slug": "travelgen",
+    "slug": "ai-travel-planner-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
