@@ -26,7 +26,7 @@ jobs:
 
       - name: Build Android APK
         env:
-          EXPO_CLI_TOKEN: ${{ secrets.EXPO_CLI_TOKEN }}
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: eas build -p android --non-interactive
 
       - name: Download APK
