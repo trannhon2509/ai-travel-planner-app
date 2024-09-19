@@ -24,13 +24,16 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Build Android APK
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas build -p android --non-interactive
-
-      - name: Download APK
-        run: wget -O my-app.apk "$(eas build:artifact-url)"
+        run: |
+          eas build -p android --non-interactive
+          APK_URL=$(eas build:list --status=finished --platform=android --limit=1 --json | jq -r '.[0].artifacts.buildUrl')
+          wget -O my-app.apk "$APK_URL"
 
       - name: Upload APK to Firebase
         uses: wzieba/Firebase-Distribution-Github-Action@v1
