@@ -33,6 +33,10 @@ jobs:
         run: |
           eas build -p android --non-interactive
           APK_URL=$(eas build:list --status=finished --platform=android --limit=1 --json | jq -r '.[0].artifacts.buildUrl')
+          if [ -z "$APK_URL" ]; then
+            echo "Error: Could not retrieve APK URL."
+            exit 1
+          fi
           wget -O my-app.apk "$APK_URL"
 
       - name: Upload APK to Firebase
