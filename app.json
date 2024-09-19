@@ -18,6 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
+        "package": "com.travelplanai",  
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
